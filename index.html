@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Studio - Bringing Ideas to Life</title>
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary:#333333;
+            --accent:#e62429;
+            --light:#f5f5f5;
+            --gray:#888888;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            color: var(--primary);
+            background-color: #111111;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1,h2,h3{
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1{
+            font-size: 3.5rem;
+        }
+        h2{
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h3{
+            font-size: 1.5rem;
+        }
+
+        p{
+            margin-bottom:1.5rem;
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c41e24;
+            transform: translateZ(-2px);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0.2px 10px rgba(0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3 ease;
+        }
+
+        .header-container {
+            display: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li  {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover{
+            color: var(--accent);
+        }
+        .hero{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(black);
+            text-align: center;
+        }
+
+        .hero-content{
+          max-width: 800px;
+          margin: 0 auto;
+          color: white;
+        }
+
+        .hero h1{
+            margin-bottom:1.5rem ;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p{
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        .hero .btn{
+            animation: fadeInUp 1s ease -.4s both;
+        }
+
+        .about{
+            background-color: var(--light);
+        }
+        .about-content{
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-grid{
+            display: grid;
+           
+            gap: 30px;
+        }
+        .services-card{
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15x rgba(0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: grid;
+        }
+
+        .services-card:hover{
+             transform: translateY(-10px);
+        }
+
+        .services-icon{
+           font-size: 2.5rem;
+           margin-bottom: 1.5rem;
+           color: var(--accent);
+        }
+        .contact{
+            background-color: var(--light);
+        }
+
+        .contact-form{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0.05);
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        .form-group label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea{
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+           border-radius: 4px;
+           font-size: 1rem;
+           transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus{
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .form-group textarea{
+           height: 150px;
+           resize: vertical;
+        }
+
+        footer{
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo{
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem;
+        }
+        
+        .footer-logo span{
+            color: var(--gray);
+        }
+
+        .copyright{
+            margin-top:2rem ;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        * Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 400%;
+            right: 400%;
+            width: 800%;
+            height: 800%;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            opacity: 0;
+            visibility: hidden;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0.15);
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0.2);
+        }
+        
+        .back-to-top:hover {
+            background-color: #c41e24;
+        }
+
+        @keyframes fadeInUp{
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-with: 768px){
+            h1{
+                font-size: 2.5rem;
+            }
+            h2{
+                font-size: 2rem;
+            }
+            nav ul{
+                display: none;
+            }
+            .mobile-menu-btn{
+                display: block;
+            }
+            .hero{
+                height: 80vh;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<!--Header-->
+<header id="header">
+    <div class="container header-container">
+        <a href="#" class="logo">Marvel <span>Studio</span></a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!--Hero Section-->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Marvel Studio</h1>
+            <p>Bringing Ideas to Life</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </div>
+</section>
+
+<!--About Section-->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Marvel Studio is a Londin-based creative agency that helps brands express their identity through morden,
+                minimalistt design. We specialize in Branding, UI/UX Design, and web Design, focusing on clean aesthetics, strong visuals, and storytelling
+                through design.
+            </p>
+            <p>
+                Our goal is to make every brand we touch stand out with purpose, simplicity, and 
+                elegance.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!--Service Section-->
+<section class="services" id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="services-card">
+                <div class="service-icon">🎨</div>
+                <h3>Branding</h3>
+                <p>we create distinctive brand identities that communicate your values and resonate with your audience.</p>
+            </div>
+            <div class="services-card">
+                <div class="service-icon">📱</div>
+                <h3>UI/UX Design</h3>
+                <p>we design instutive and engaging digital experiences that users love and remember.</p>
+            </div>
+            <div class="services-card">
+                  <div class="service-icon">💻</div>
+                <h3>web Design</h3>
+                <p>we build responsive, modern websites that effectively showcase ypur brands and drive results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Contact Section-->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">Marvel <span>Studio</span></div>
+            <p>London-based creative agency specializing in modern, minimalist design.</p>
+            <p class="copyright">&copy; 2023 Marvel Studio. All right reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!--Back to Top Button-->
+
+<button class="back-to-top" id="backToTop">↑</button>
+<script>
+    //back to top button
+
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () =>{
+        if (window.pageXOffset > 300) {
+            backToTopButton.classList.add('show');
+        }
+    });
+
+    backToTopButton.addEventListener(
+        'click', () => {
+         window.scrollTo({
+            top:0,
+            behavior:'smooth'
+         });
+        });
+
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name'). value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message');
+
+            alert('thank you for your message, ${name}! we will gwt back to you at ${email} soon.');
+
+            contactForm.reset();
+        });
+
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0.1)';
+            } else {
+                header.style.padding ='15px 0';
+
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0.05)';
+            }
+        })
+</script>
+</body>
+</html>
